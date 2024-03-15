@@ -7,11 +7,12 @@
   display: flex;
   flex-flow: column nowrap;
   overflow: hidden;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
   transition: 0.5s;
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 img {
@@ -44,13 +45,14 @@ img {
 }
 
 button {
-  background-color: #374375;
+  background-color: #2e385f;
   color: white;
   border: none;
   padding: 16px 24px;
   border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {

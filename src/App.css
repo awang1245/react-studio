@@ -38,6 +38,7 @@
   position: fixed;
   right: 72px;
   top: 48px;
+  overflow-y: scroll;
 }
 
 .cart-item {
@@ -50,5 +51,5 @@
 .cart-content {
   display: flex;
   flex-flow: column nowrap;
-  gap: 24px;
+  gap: 20px;
 }
