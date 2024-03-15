@@ -1,4 +1,5 @@
 import "./App.css";
+import BakeryItem from "./components/BakeryItem";
 import { useState } from "react";
 import bakeryData from "./assets/bakery-data.json";
 
@@ -9,20 +10,51 @@ bakeryData.forEach((item) => {
 /* ############################################################## */
 
 function App() {
-  // TODO: use useState to create a state variable to hold the state of the cart
-  /* add your cart state code here */
+  const [cart, setCart] = useState([]);
+  const [cartCount, setCartCount] = useState({});
 
   return (
     <div className="App">
-      <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
-
-      {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
-        <p>Bakery Item {index}</p> // replace with BakeryItem component
-      ))}
-
-      <div>
-        <h2>Cart</h2>
-        {/* TODO: render a list of items in the cart */}
+      <div className="content">
+        <div className="bakery">
+          <h1>Bananna's Bakery</h1>
+          <div className="bakery-items">
+            {bakeryData.map((item, index) => (
+              <div className="bakery-container" key={index}>
+                <BakeryItem
+                  item={item}
+                  cart={cart}
+                  setCart={setCart}
+                  setCartCount={setCartCount}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="cart-items">
+          <h2>My Cart</h2>
+          {cart.length > 0 && (
+            <>
+              <div className="cart-content">
+                {Object.keys(cartCount).map((item, index) => (
+                  <div className="cart-item">
+                    <div>{`${cartCount[item]}x`}</div>
+                    <div>{item}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="cart-item">
+                <b>Total</b>
+                <b>
+                  {"$"}
+                  {cart
+                    .reduce((currTotal, item) => currTotal + item.price, 0)
+                    .toFixed(2)}
+                </b>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
