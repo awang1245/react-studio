@@ -37,10 +37,12 @@ function App() {
             <>
               <div className="cart-content">
                 {Object.keys(cartCount).map((item, index) => (
-                  <div className="cart-item">
-                    <div>{`${cartCount[item]}x`}</div>
-                    <div>{item}</div>
-                  </div>
+                  <>
+                    <div className="cart-item">
+                      <div>{`${cartCount[item]}x`}</div>
+                      <div>{item}</div>
+                    </div>
+                  </>
                 ))}
               </div>
               <div className="cart-item">
